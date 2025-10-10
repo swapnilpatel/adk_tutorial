@@ -1,9 +1,14 @@
 from google.adk.agents import Agent
 from google.adk.tools import google_search
 from google.adk.agents import Agent, SequentialAgent
-from loop_agent.agents import iterative_planner_agent
-from parallel_agent.agents import parallel_planner_agent
-from custom_agent.agents import root_agent as custom_agent
+import sys
+import os
+
+# Add the parent directory to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from b3_loop_agent.agents import iterative_planner_agent
+from b2_parallel_agent.agents import parallel_planner_agent
+from c_custom_agent.agents import root_agent as custom_agent
 from dotenv import load_dotenv
 
 load_dotenv()

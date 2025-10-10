@@ -50,3 +50,5 @@ Thumbs.db
 .adk/
 credentials.json
 service-account.json
+
+.db

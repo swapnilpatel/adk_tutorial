@@ -11,3 +11,6 @@ pytest==8.4.2
 pytest-asyncio==1.2.0
 black>=23.0.0
 flake8>=6.0.0
+
+# MCP Toolbox client library
+toolbox-core>=0.2.0
