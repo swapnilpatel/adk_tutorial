@@ -5,8 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
-# ✨ CHANGE 1: We tell foodie_agent to save its output to the shared state.
 # Note the new `output_key` and the more specific instruction.
 foodie_agent = Agent(
     name="foodie_agent",
@@ -20,7 +18,6 @@ foodie_agent = Agent(
     output_key="destination"  # ADK will save the agent's final response to state['destination']
 )
 
-# ✨ CHANGE 2: We tell transportation_agent to read from the shared state.
 # The `{destination}` placeholder is automatically filled by the ADK from the state.
 transportation_agent = Agent(
     name="transportation_agent",
@@ -40,13 +37,6 @@ find_and_navigate_agent = SequentialAgent(
     name="find_and_navigate_agent",
     sub_agents=[foodie_agent, transportation_agent],
     description="A workflow that first finds a location and then provides directions to it."
-)
-
-weekend_guide_agent = Agent(
-    name="weekend_guide_agent",
-    model="gemini-2.5-flash",
-    tools=[google_search],
-    instruction="You are a local events guide. Your task is to find interesting events, concerts, festivals, and activities happening on a specific weekend."
 )
 
 root_agent = find_and_navigate_agent
